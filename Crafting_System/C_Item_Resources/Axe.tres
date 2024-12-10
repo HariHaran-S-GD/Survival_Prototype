@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Itemdata" load_steps=4 format=3 uid="uid://bveh5xsrsph1e"]
+
+[ext_resource type="Texture2D" uid="uid://csg63mfcqxdd3" path="res://icons/stone-axe.png" id="1_fa22p"]
+[ext_resource type="Script" path="res://Inventory/Scripts/Itemdata.gd" id="1_wy13a"]
+[ext_resource type="PackedScene" uid="uid://bhptv7iblcij3" path="res://Crafting_System/Craftables/StoneAxe.tscn" id="2_ircjn"]
+
+[resource]
+script = ExtResource("1_wy13a")
+Itemname = "Axe"
+ItemModel = ExtResource("2_ircjn")
+Icon = ExtResource("1_fa22p")
+MaxStack = 1
+Stackable = false
+Quantity = 1

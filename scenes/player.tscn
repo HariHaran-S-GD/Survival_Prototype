@@ -1,0 +1,343 @@
+[gd_scene load_steps=23 format=3 uid="uid://cgq63ax6tvxcd"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_0dwmx"]
+[ext_resource type="Resource" uid="uid://dc5cus0db5otb" path="res://Inventory/Items/rock.tres" id="5_sjo01"]
+[ext_resource type="Script" path="res://Inventory/Interaction/PlayerInteractionHandler.gd" id="5_svpul"]
+[ext_resource type="Script" path="res://Inventory/Scripts/InventoryHandler.gd" id="6_5u7wx"]
+[ext_resource type="Script" path="res://Inventory/Scripts/Itemdata.gd" id="6_ilml5"]
+[ext_resource type="Resource" uid="uid://bveh5xsrsph1e" path="res://Crafting_System/C_Item_Resources/Axe.tres" id="6_yyjrp"]
+[ext_resource type="Resource" uid="uid://c2u5jek3tpblg" path="res://Inventory/Items/Wood.tres" id="8_6t4nk"]
+[ext_resource type="PackedScene" uid="uid://ck07d7adpueb8" path="res://Inventory/Scenes/hotbar_slot.tscn" id="9_kterv"]
+[ext_resource type="Script" path="res://Crafting_System/Scripts/crafting_ui.gd" id="10_al6oy"]
+[ext_resource type="StyleBox" uid="uid://ctgxb7ngnn336" path="res://scenes/Items/paneltheme.tres" id="10_rwfi3"]
+[ext_resource type="PackedScene" uid="uid://dlenvsmsc40f5" path="res://Crafting_System/Scenes/craftables_ui.tscn" id="10_ry0k1"]
+[ext_resource type="Script" path="res://Inventory/Scripts/inventory_switch.gd" id="11_obcch"]
+[ext_resource type="Script" path="res://Crafting_System/Scripts/Craftables.gd" id="12_valtg"]
+[ext_resource type="Script" path="res://Crafting_System/Scripts/crafting.gd" id="12_vkdtl"]
+[ext_resource type="Resource" uid="uid://cjthmet36yp66" path="res://Crafting_System/Craftables/Axe_C.tres" id="13_vc16a"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ofkdv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b7bnq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_skjv4"]
+radius = 2.072
+
+[sub_resource type="LabelSettings" id="LabelSettings_77hby"]
+font_size = 28
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hosvb"]
+bg_color = Color(0.180392, 0.2, 0.211765, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0.733333)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.109804)
+shadow_size = 1
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_faiu1"]
+bg_color = Color(0.180392, 0.2, 0.211765, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 0.733333)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.109804)
+shadow_size = 1
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1h2uy"]
+bg_color = Color(0.167356, 0.167356, 0.167356, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0.0980392)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.109804)
+shadow_size = 1
+shadow_offset = Vector2(0, 2)
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_0dwmx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_ofkdv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_b7bnq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.520484, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 715.0
+offset_top = 977.0
+offset_right = 1243.0
+offset_bottom = 990.0
+show_percentage = false
+
+[node name="InteractionArea" type="Area3D" parent="." node_paths=PackedStringArray("pickup_text_label", "camera")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_svpul")
+ItemTypes = Array[ExtResource("6_ilml5")]([ExtResource("8_6t4nk"), ExtResource("5_sjo01"), ExtResource("6_yyjrp")])
+pickup_text_label = NodePath("Label3D")
+camera = NodePath("../Camera3D")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="InteractionArea"]
+shape = SubResource("SphereShape3D_skjv4")
+
+[node name="Label3D" type="Label3D" parent="InteractionArea"]
+font_size = 18
+outline_size = 10
+
+[node name="InventoryUI" type="Control" parent="." node_paths=PackedStringArray("PlayerBody", "InventoryGrid")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_5u7wx")
+PlayerBody = NodePath("..")
+ItemSlotsCount = 50
+InventoryGrid = NodePath("Panel/MarginContainer/GridContainer")
+
+[node name="Panel" type="Panel" parent="InventoryUI"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -397.0
+offset_top = -226.0
+offset_right = 397.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("10_rwfi3")
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryUI/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="InventoryUI/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 15
+columns = 10
+
+[node name="Label" type="Label" parent="InventoryUI/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -33.0
+offset_right = 55.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_77hby")
+
+[node name="HotBarUI" type="Control" parent="InventoryUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -86.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="Panel2" type="Panel" parent="InventoryUI/HotBarUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -88.0
+offset_right = 175.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("10_rwfi3")
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryUI/HotBarUI/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="InventoryUI/HotBarUI/Panel2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 5
+columns = 5
+
+[node name="HotbarSlot" parent="InventoryUI/HotBarUI/Panel2/MarginContainer/GridContainer" instance=ExtResource("9_kterv")]
+layout_mode = 2
+
+[node name="HotbarSlot3" parent="InventoryUI/HotBarUI/Panel2/MarginContainer/GridContainer" instance=ExtResource("9_kterv")]
+layout_mode = 2
+
+[node name="HotbarSlot4" parent="InventoryUI/HotBarUI/Panel2/MarginContainer/GridContainer" instance=ExtResource("9_kterv")]
+layout_mode = 2
+
+[node name="HotbarSlot5" parent="InventoryUI/HotBarUI/Panel2/MarginContainer/GridContainer" instance=ExtResource("9_kterv")]
+layout_mode = 2
+
+[node name="HotbarSlot2" parent="InventoryUI/HotBarUI/Panel2/MarginContainer/GridContainer" instance=ExtResource("9_kterv")]
+layout_mode = 2
+
+[node name="Crafting_UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_al6oy")
+crafting_recipe_ui = ExtResource("10_ry0k1")
+recipes = Array[ExtResource("12_valtg")]([ExtResource("13_vc16a")])
+
+[node name="CraftingWindow" type="Panel" parent="Crafting_UI"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -397.0
+offset_top = -226.0
+offset_right = 397.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("10_rwfi3")
+
+[node name="Craftables_container" type="VBoxContainer" parent="Crafting_UI/CraftingWindow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = -8.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UI_Switch" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 0.255
+anchor_right = 0.5
+anchor_bottom = 0.255
+offset_left = -576.0
+offset_top = 238.6
+offset_right = 576.0
+offset_bottom = 290.6
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="UI_Switch"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.164063
+anchor_top = -4.942
+anchor_right = 0.849
+anchor_bottom = -4.019
+offset_left = -9.0
+offset_top = -3.01599
+offset_right = -4.04803
+offset_bottom = -3.01199
+grow_horizontal = 2
+theme_override_styles/panel = ExtResource("10_rwfi3")
+
+[node name="InventorySButton" type="Button" parent="UI_Switch/Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -18.0
+offset_right = 129.0
+offset_bottom = 18.0
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxFlat_hosvb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_faiu1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1h2uy")
+text = "Inventory"
+script = ExtResource("11_obcch")
+
+[node name="Crafting_SButton" type="Button" parent="UI_Switch/Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 147.0
+offset_top = -18.0
+offset_right = 270.0
+offset_bottom = 18.0
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxFlat_hosvb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_faiu1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1h2uy")
+text = "Crafting"
+script = ExtResource("12_vkdtl")
+
+[connection signal="OnItemPickedUp" from="InteractionArea" to="InventoryUI" method="PickupItem"]
+[connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]
+[connection signal="pressed" from="UI_Switch/Panel/InventorySButton" to="UI_Switch/Panel/InventorySButton" method="_on_pressed"]
+[connection signal="pressed" from="UI_Switch/Panel/Crafting_SButton" to="UI_Switch/Panel/Crafting_SButton" method="_on_pressed"]

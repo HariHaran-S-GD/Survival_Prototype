@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://duysap2l3g1km"]
+
+[ext_resource type="Script" path="res://Inventory/Scripts/hot_bar_ui.gd" id="1_mxs0l"]
+[ext_resource type="StyleBox" uid="uid://ctgxb7ngnn336" path="res://scenes/Items/paneltheme.tres" id="2_k6res"]
+
+[node name="HotBarUI" type="Control"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -86.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+script = ExtResource("1_mxs0l")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -88.0
+offset_right = 175.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("2_k6res")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="Panel2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 5
+columns = 5

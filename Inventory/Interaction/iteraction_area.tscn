@@ -1,0 +1,47 @@
+[gd_scene load_steps=11 format=3 uid="uid://dqajh3gcamvot"]
+
+[ext_resource type="Script" path="res://Inventory/Interaction/PlayerInteractionHandler.gd" id="1_rxe7n"]
+[ext_resource type="Script" path="res://Inventory/Scripts/Itemdata.gd" id="2_ctrw2"]
+[ext_resource type="Texture2D" uid="uid://dr132euq1rq75" path="res://icons/icon.svg" id="3_fapr6"]
+[ext_resource type="PackedScene" uid="uid://crd5x4nbxkjt6" path="res://Inventory/test_item.tscn" id="4_jmsyp"]
+[ext_resource type="Texture2D" uid="uid://dxiqqg42su8eg" path="res://icons/rock.svg" id="5_8g7a1"]
+[ext_resource type="PackedScene" uid="uid://d1vod86ut3nmu" path="res://Inventory/Items/rock.tscn" id="6_nq1ep"]
+[ext_resource type="Resource" uid="uid://c2u5jek3tpblg" path="res://Inventory/Items/Wood.tres" id="7_6csta"]
+
+[sub_resource type="Resource" id="Resource_n4jmv"]
+script = ExtResource("2_ctrw2")
+Itemname = "cube"
+ItemModel = ExtResource("4_jmsyp")
+Icon = ExtResource("3_fapr6")
+MaxStack = 99
+Stackable = true
+Quantity = 1
+
+[sub_resource type="Resource" id="Resource_0i75i"]
+script = ExtResource("2_ctrw2")
+Itemname = "rock"
+ItemModel = ExtResource("6_nq1ep")
+Icon = ExtResource("5_8g7a1")
+MaxStack = 99
+Stackable = true
+Quantity = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_skjv4"]
+radius = 2.072
+
+[node name="IteractionArea" type="Area3D" node_paths=PackedStringArray("pickup_text_label")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_rxe7n")
+ItemTypes = Array[ExtResource("2_ctrw2")]([SubResource("Resource_n4jmv"), SubResource("Resource_0i75i"), ExtResource("7_6csta")])
+pickup_text_label = NodePath("Label3D")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_skjv4")
+
+[node name="Label3D" type="Label3D" parent="."]
+font_size = 20
+outline_size = 10
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

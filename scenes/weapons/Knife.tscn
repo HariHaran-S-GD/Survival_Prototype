@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://5nq77ktave8m"]
+
+[ext_resource type="PackedScene" uid="uid://c42lxjaywjk5n" path="res://scenes/other/Bayonet.fbx" id="1_dkx0p"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(0.288339, 0, 0, 0, 0.357711, 0, 0, 0, 0.530431, 0, 0, 0)
+
+[node name="Bayonet" parent="." instance=ExtResource("1_dkx0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.485343, 0, 0.00380969)

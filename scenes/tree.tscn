@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://brvsp4xe1cegx"]
+
+[ext_resource type="PackedScene" uid="uid://thnixeuo3d7a" path="res://scenes/other/pine_tree_low-poly.glb" id="1_txqca"]
+
+[node name="Tree" type="Node3D"]
+transform = Transform3D(0.997584, 0, 0, 0, 0.997584, 0, 0, 0, 0.997584, 0, 0, 0)
+
+[node name="pine_Tree" parent="." instance=ExtResource("1_txqca")]
+transform = Transform3D(0.0280588, 0, 0, 0, 0.0138608, 0, 0, 0, 0.0222181, 1.05433, 0, -0.750598)

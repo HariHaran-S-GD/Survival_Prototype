@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc3tagd536vsw"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_ljgc3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7qjsm"]
+albedo_color = Color(0.913016, 0.577335, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_h6bju"]
+material = SubResource("StandardMaterial3D_7qjsm")
+
+[node name="Bullet" type="StaticBody3D"]
+transform = Transform3D(0.995379, 0, 0, 0, 0.995379, 0, 0, 0, 0.995379, 0, 0, 0)
+script = ExtResource("1_ljgc3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00697614, 0, 0, 0, 0.000221597, -0.0111419, 0, -0.00794823, -0.000310639, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_h6bju")

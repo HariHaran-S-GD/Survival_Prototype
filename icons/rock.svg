@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" id="stone" x="0" y="0" version="1.1" viewBox="0 0 48 40">
+  <path fill="#999" d="M0 28l8 8 17 3 20-10 2-10-2-10-11-8-23 2-6.8 11.8z"></path>
+  <path fill="#FFF" d="M11 3l13 5.2L45 9 34 1z" opacity=".15"></path>
+  <path d="M25 39l-2.3-17.2 13 2.5L47 19l-2 10z" opacity=".25"></path>
+  <path d="M8 36l17 3-2.3-17.2L24 8.2 9.8 22.3z" opacity=".15"></path>
+  <path d="M22.7 21.8l13 2.5L47 19 45 9l-21-.8z" opacity=".1"></path>
+  <path d="M4.2 14.8l5.6 7.5 12.9-.5 13 2.5L47 19l-2 10-20 10-17-3-8-8z" opacity=".1"></path>
+  <path d="M45 9l-9.3 15.3 1 8.7 8.3-4 2-10z" opacity=".15"></path>
+  <path d="M8.4 33.5l14.8-7L36.7 33 47 19l-2 10-20 10-17-3-8-8 2-6.3z" opacity=".15"></path>
+</svg>

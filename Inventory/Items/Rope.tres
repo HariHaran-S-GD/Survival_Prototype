@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Itemdata" load_steps=2 format=3 uid="uid://vqvp7xqwgeve"]
+
+[ext_resource type="Script" path="res://Inventory/Scripts/Itemdata.gd" id="1_77g2o"]
+
+[resource]
+script = ExtResource("1_77g2o")
+Itemname = "Rope"
+MaxStack = 10
+Stackable = true
+Quantity = 1

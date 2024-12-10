@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bww7chtsys4qg"]
+
+[ext_resource type="PackedScene" uid="uid://cv3wtgt8i4jqt" path="res://scenes/weapons/main/Glock_17.fbx" id="1_6gd4g"]
+[ext_resource type="Script" path="res://scripts/gun.gd" id="1_rj8bs"]
+
+[node name="Pistol_Glock" type="StaticBody3D"]
+script = ExtResource("1_rj8bs")
+
+[node name="Glock" parent="." instance=ExtResource("1_6gd4g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0173834, 0, 0.030036)

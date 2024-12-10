@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://d12usldm5jina"]
+
+[ext_resource type="Script" path="res://scripts/gun.gd" id="1_4onh8"]
+[ext_resource type="PackedScene" uid="uid://cqg1k1bajfppp" path="res://scenes/glock/9mm_pistol.glb" id="1_e6eds"]
+[ext_resource type="PackedScene" uid="uid://cc3tagd536vsw" path="res://scenes/Bullet.tscn" id="3_k333c"]
+
+[node name="Gun" type="StaticBody3D"]
+transform = Transform3D(1.20948, 0, 0, 0, 1.16447, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_4onh8")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_e6eds")]
+transform = Transform3D(0.124107, 0, 0, 0, 0.147005, 0, 0, 0, 0.281571, 0.0163689, 0, 0.0283089)
+
+[node name="Bullet" parent="." instance=ExtResource("3_k333c")]
+transform = Transform3D(0.995379, 0, 0, 0, 0.995379, 0, 0, 0, 0.995378, -0.118613, 0.0883539, 0.0290278)

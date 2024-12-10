@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Itemdata" load_steps=4 format=3 uid="uid://dc5cus0db5otb"]
+
+[ext_resource type="Texture2D" uid="uid://dxiqqg42su8eg" path="res://icons/rock.svg" id="1_aebjn"]
+[ext_resource type="Script" path="res://Inventory/Scripts/Itemdata.gd" id="1_ljf3k"]
+[ext_resource type="PackedScene" uid="uid://d1vod86ut3nmu" path="res://Inventory/Items/rock.tscn" id="2_go2n7"]
+
+[resource]
+script = ExtResource("1_ljf3k")
+Itemname = "Rock"
+ItemModel = ExtResource("2_go2n7")
+Icon = ExtResource("1_aebjn")
+MaxStack = 10
+Stackable = true
+Quantity = 1

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Itemdata" load_steps=4 format=3 uid="uid://c2u5jek3tpblg"]
+
+[ext_resource type="Texture2D" uid="uid://c4u7dky35l4q1" path="res://icons/Wood.png" id="1_bmj4u"]
+[ext_resource type="Script" path="res://Inventory/Scripts/Itemdata.gd" id="1_lof6w"]
+[ext_resource type="PackedScene" uid="uid://dpq8j60hdagb7" path="res://Inventory/Items/wood.tscn" id="2_docm2"]
+
+[resource]
+script = ExtResource("1_lof6w")
+Itemname = "Wood"
+ItemModel = ExtResource("2_docm2")
+Icon = ExtResource("1_bmj4u")
+MaxStack = 10
+IsStackable = true
+StackCount = 1
