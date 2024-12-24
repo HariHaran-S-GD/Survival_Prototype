@@ -18,7 +18,7 @@ func _ready() -> void:
 		recipe_node.crafting = self
 		recipe_ui.append(recipe_node)
 		
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	open()
 			
 func craft(recipe : Craftables):

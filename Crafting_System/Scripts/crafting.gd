@@ -5,6 +5,9 @@ extends Button
 
 
 
+
+
+
 func _on_pressed() -> void:
 	inventory_ui.visible = false
 	crafting_window.visible = true

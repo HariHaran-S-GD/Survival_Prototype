@@ -7,3 +7,4 @@ class_name Itemdata
 @export var MaxStack: int = 99              # Maximum number of items that can stack
 @export var Stackable: bool = true          # Indicates if the item is stackable
 @export var Quantity: int = 1               # Current quantity of the item
+@export var Droppable: bool = false

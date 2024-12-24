@@ -20,6 +20,8 @@ enum StanceState { STANDING, CROUCHING }
 @onready var footstep_player = AudioStreamPlayer3D.new()
 @onready var collision_shape = $CollisionShape3D
 
+
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var current_speed = WALK_SPEED
 var stamina = 100.0
@@ -36,8 +38,10 @@ var target_tilt = 0.0
 var initial_camera_height = 0.0
 var footstep_sound = preload("res://audio/footsteps-1.wav")
 var mouse_toggle : bool = false
+
+
 func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 	stamina_bar.hide()
 	stamina_bar.max_value = max_stamina
 	stamina_bar.value = stamina
@@ -45,9 +49,9 @@ func _ready():
 	footstep_player.name = "FootstepPlayer"
 	footstep_player.stream = footstep_sound
 	add_child(footstep_player)
-	
 	initial_camera_height = camera.position.y
-
+	
+	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
@@ -154,3 +158,4 @@ func _physics_process(delta):
 		velocity.z = lerp(velocity.z, 0.0, DECELERATION * delta)
 	
 	move_and_slide()
+	

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Craftables" load_steps=6 format=3 uid="uid://cbux0kqvvs2fu"]
+
+[ext_resource type="Resource" uid="uid://vqvp7xqwgeve" path="res://Crafting_System/C_Item_Resources/Rope.tres" id="1_emgrp"]
+[ext_resource type="Script" path="res://Crafting_System/Scripts/Craftables_Requirement.gd" id="1_o2yg0"]
+[ext_resource type="Script" path="res://Crafting_System/Scripts/Craftables.gd" id="2_xohr4"]
+[ext_resource type="Resource" uid="uid://gqvr6emqppq7" path="res://Inventory/Items/Fiber.tres" id="3_tre1h"]
+
+[sub_resource type="Resource" id="Resource_n3tb4"]
+script = ExtResource("1_o2yg0")
+item = ExtResource("3_tre1h")
+Quantity = 8
+
+[resource]
+script = ExtResource("2_xohr4")
+item = ExtResource("1_emgrp")
+requirements = Array[ExtResource("1_o2yg0")]([SubResource("Resource_n3tb4")])

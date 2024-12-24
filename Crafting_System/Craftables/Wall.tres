@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Craftables" load_steps=8 format=3 uid="uid://devkrdybremxj"]
+
+[ext_resource type="Script" path="res://Crafting_System/Scripts/Craftables_Requirement.gd" id="1_ar6ei"]
+[ext_resource type="Resource" uid="uid://d00l4dg6u7hn2" path="res://Crafting_System/C_Item_Resources/Wall.tres" id="1_o78bk"]
+[ext_resource type="Script" path="res://Crafting_System/Scripts/Craftables.gd" id="2_7fw1a"]
+[ext_resource type="Resource" uid="uid://bg0vd11b3b2jq" path="res://Inventory/Items/iron.tres" id="3_vnvle"]
+[ext_resource type="Resource" uid="uid://c2u5jek3tpblg" path="res://Inventory/Items/Wood.tres" id="4_twn1n"]
+
+[sub_resource type="Resource" id="Resource_a3u1x"]
+script = ExtResource("1_ar6ei")
+item = ExtResource("3_vnvle")
+Quantity = 1
+
+[sub_resource type="Resource" id="Resource_6dwgp"]
+script = ExtResource("1_ar6ei")
+item = ExtResource("4_twn1n")
+Quantity = 2
+
+[resource]
+script = ExtResource("2_7fw1a")
+item = ExtResource("1_o78bk")
+requirements = Array[ExtResource("1_ar6ei")]([SubResource("Resource_a3u1x"), SubResource("Resource_6dwgp")])

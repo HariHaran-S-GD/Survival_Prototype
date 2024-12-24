@@ -1,18 +1,23 @@
 extends Control
 class_name HotbarSlot
-
+signal OnItemEquiped(SlotID)
 signal OnItemDroppedToHotbar(fromSlotID, toSlotID)
 
 @export var EquippedHighlight: Panel
 @export var IconSlot: TextureRect
 @export var QuantityLabel: Label
-@onready var inventory_ui: InventoryHandler =$"../../../../.."
 var HotbarSlotID: int = -1
 var SlotFilled: bool = false
 var SlotData: Itemdata
 
-func FillSlot(data: Itemdata):
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.double_click:
+			OnItemEquiped.emit(HotbarSlotID)
+			
+func FillSlot(data: Itemdata,equipped : bool):
 	SlotData = data
+	EquippedHighlight.visible = equipped
 	if SlotData != null:
 		SlotFilled = true
 		IconSlot.texture = data.Icon
@@ -21,7 +26,13 @@ func FillSlot(data: Itemdata):
 		SlotFilled = false
 		IconSlot.texture = null
 		QuantityLabel.text = ""
-
+		
+func UpdateSlotDisplay():
+	if SlotFilled:
+		QuantityLabel.text = str(SlotData.Quantity)
+	else:
+		QuantityLabel.text = ""
+		
 # Handle drag preview from inventory
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	if SlotFilled:
@@ -32,15 +43,13 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 		preview.rotation = 2.0
 		preview.texture = IconSlot.texture
 		set_drag_preview(preview)
-		return {"Type": "Item", "ID": HotbarSlotID, "Source": "Hotbar"}
+		return {"Type": "Item", "ID": HotbarSlotID, "Source": "Inventory"}
 	else:
 		return false
-
+		
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+	return typeof(data) == TYPE_DICTIONARY and data["Type"] == "Item"
+	
 # Handle dropping item from inventory to hotbar
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
-	if data["Source"] == "Inventory":
-		# Swap or assign item to the hotbar slot
-		var inventory_slot = inventory_ui.InventorySlots[data["ID"]]
-		FillSlot(inventory_slot.SlotData)
-		inventory_slot.FillSlot(null, false)  # Remove item from inventory slot
-		OnItemDroppedToHotbar.emit(data["ID"], HotbarSlotID)
+	OnItemDroppedToHotbar.emit(data["ID"], HotbarSlotID)

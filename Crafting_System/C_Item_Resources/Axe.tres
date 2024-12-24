@@ -12,3 +12,4 @@ Icon = ExtResource("1_fa22p")
 MaxStack = 1
 Stackable = false
 Quantity = 1
+Droppable = false

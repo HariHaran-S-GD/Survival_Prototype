@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Craftables" load_steps=8 format=3 uid="uid://cjthmet36yp66"]
+[gd_resource type="Resource" script_class="Craftables" load_steps=11 format=3 uid="uid://cjthmet36yp66"]
 
 [ext_resource type="Resource" uid="uid://bveh5xsrsph1e" path="res://Crafting_System/C_Item_Resources/Axe.tres" id="1_k164c"]
 [ext_resource type="Script" path="res://Crafting_System/Scripts/Craftables_Requirement.gd" id="2_uxdyc"]
 [ext_resource type="Resource" uid="uid://dc5cus0db5otb" path="res://Inventory/Items/rock.tres" id="3_t5rpi"]
 [ext_resource type="Resource" uid="uid://c2u5jek3tpblg" path="res://Inventory/Items/Wood.tres" id="4_3sad3"]
 [ext_resource type="Script" path="res://Crafting_System/Scripts/Craftables.gd" id="5_2gjdp"]
+[ext_resource type="Script" path="res://Inventory/Scripts/Itemdata.gd" id="5_sk2w4"]
 
 [sub_resource type="Resource" id="Resource_icmuv"]
 script = ExtResource("2_uxdyc")
@@ -16,7 +17,20 @@ script = ExtResource("2_uxdyc")
 item = ExtResource("4_3sad3")
 Quantity = 2
 
+[sub_resource type="Resource" id="Resource_15nwo"]
+script = ExtResource("5_sk2w4")
+Itemname = "Rope"
+MaxStack = 99
+Stackable = true
+Quantity = 1
+Droppable = false
+
+[sub_resource type="Resource" id="Resource_2hpck"]
+script = ExtResource("2_uxdyc")
+item = SubResource("Resource_15nwo")
+Quantity = 1
+
 [resource]
 script = ExtResource("5_2gjdp")
 item = ExtResource("1_k164c")
-requirements = Array[ExtResource("2_uxdyc")]([SubResource("Resource_icmuv"), SubResource("Resource_y21a0")])
+requirements = Array[ExtResource("2_uxdyc")]([SubResource("Resource_icmuv"), SubResource("Resource_y21a0"), SubResource("Resource_2hpck")])

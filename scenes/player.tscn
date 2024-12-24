@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cgq63ax6tvxcd"]
+[gd_scene load_steps=26 format=3 uid="uid://cgq63ax6tvxcd"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_0dwmx"]
 [ext_resource type="Resource" uid="uid://dc5cus0db5otb" path="res://Inventory/Items/rock.tres" id="5_sjo01"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" path="res://Inventory/Scripts/InventoryHandler.gd" id="6_5u7wx"]
 [ext_resource type="Script" path="res://Inventory/Scripts/Itemdata.gd" id="6_ilml5"]
 [ext_resource type="Resource" uid="uid://bveh5xsrsph1e" path="res://Crafting_System/C_Item_Resources/Axe.tres" id="6_yyjrp"]
+[ext_resource type="Resource" uid="uid://vqvp7xqwgeve" path="res://Crafting_System/C_Item_Resources/Rope.tres" id="7_v11nd"]
 [ext_resource type="Resource" uid="uid://c2u5jek3tpblg" path="res://Inventory/Items/Wood.tres" id="8_6t4nk"]
+[ext_resource type="Resource" uid="uid://gqvr6emqppq7" path="res://Inventory/Items/Fiber.tres" id="8_u0f0f"]
 [ext_resource type="PackedScene" uid="uid://ck07d7adpueb8" path="res://Inventory/Scenes/hotbar_slot.tscn" id="9_kterv"]
 [ext_resource type="Script" path="res://Crafting_System/Scripts/crafting_ui.gd" id="10_al6oy"]
 [ext_resource type="StyleBox" uid="uid://ctgxb7ngnn336" path="res://scenes/Items/paneltheme.tres" id="10_rwfi3"]
@@ -15,6 +17,7 @@
 [ext_resource type="Script" path="res://Crafting_System/Scripts/Craftables.gd" id="12_valtg"]
 [ext_resource type="Script" path="res://Crafting_System/Scripts/crafting.gd" id="12_vkdtl"]
 [ext_resource type="Resource" uid="uid://cjthmet36yp66" path="res://Crafting_System/Craftables/Axe_C.tres" id="13_vc16a"]
+[ext_resource type="Resource" uid="uid://cbux0kqvvs2fu" path="res://Crafting_System/Craftables/Rope_C.tres" id="14_aujjb"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ofkdv"]
 
@@ -102,9 +105,9 @@ show_percentage = false
 
 [node name="InteractionArea" type="Area3D" parent="." node_paths=PackedStringArray("pickup_text_label", "camera")]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 129
 script = ExtResource("5_svpul")
-ItemTypes = Array[ExtResource("6_ilml5")]([ExtResource("8_6t4nk"), ExtResource("5_sjo01"), ExtResource("6_yyjrp")])
+ItemTypes = Array[ExtResource("6_ilml5")]([ExtResource("8_6t4nk"), ExtResource("5_sjo01"), ExtResource("6_yyjrp"), ExtResource("7_v11nd"), ExtResource("8_u0f0f")])
 pickup_text_label = NodePath("Label3D")
 camera = NodePath("../Camera3D")
 
@@ -245,7 +248,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("10_al6oy")
 crafting_recipe_ui = ExtResource("10_ry0k1")
-recipes = Array[ExtResource("12_valtg")]([ExtResource("13_vc16a")])
+recipes = Array[ExtResource("12_valtg")]([ExtResource("13_vc16a"), ExtResource("14_aujjb")])
 
 [node name="CraftingWindow" type="Panel" parent="Crafting_UI"]
 custom_minimum_size = Vector2(100, 100)

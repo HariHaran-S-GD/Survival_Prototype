@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcoxxiaqh4rg5"]
+
+[ext_resource type="Script" path="res://building_system/scripts/building_system_grid.gd" id="1_xalvg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f05do"]
+size = Vector3(200, 1, 200)
+
+[node name="Grid" type="Node3D"]
+script = ExtResource("1_xalvg")
+
+[node name="GroundStaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Ground" type="CollisionShape3D" parent="GroundStaticBody3D"]
+shape = SubResource("BoxShape3D_f05do")
+disabled = true

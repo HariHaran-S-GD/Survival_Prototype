@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Itemdata" load_steps=4 format=3 uid="uid://d00l4dg6u7hn2"]
+
+[ext_resource type="Script" path="res://Inventory/Scripts/Itemdata.gd" id="1_80ixc"]
+[ext_resource type="Texture2D" uid="uid://dr132euq1rq75" path="res://icons/icon.svg" id="1_k06m5"]
+[ext_resource type="PackedScene" uid="uid://ukifbyagws7j" path="res://building_system/assets/scenes/fence_fortified.tscn" id="2_4smwa"]
+
+[resource]
+script = ExtResource("1_80ixc")
+Itemname = "WALL"
+ItemModel = ExtResource("2_4smwa")
+Icon = ExtResource("1_k06m5")
+MaxStack = 1
+Stackable = false
+Quantity = 1
+Droppable = false

@@ -1,7 +1,6 @@
 extends Control
 class_name Hotbar
 
-@export var HotbarSlotsCount: int = 5  # Adjust the number of slots as needed
 @export var HotbarSlots: Array[HotbarSlot] = []
   # Assign the slot ID to each HotbarSlot
 

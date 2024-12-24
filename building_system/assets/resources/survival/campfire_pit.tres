@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuildableResource" load_steps=4 format=3 uid="uid://bi1b6a1678tf"]
+
+[ext_resource type="PackedScene" path="res://building_system/assets/scenes/campfire_pit.tscn" id="1_lpb87"]
+[ext_resource type="Script" path="res://building_system/scripts/resources/buildable_resource.gd" id="2_ldc8g"]
+[ext_resource type="Texture2D" uid="uid://bwn4hj1x3oji1" path="res://building_system/assets/textures/survival/campfire-pit.png" id="3_7uyha"]
+
+[resource]
+script = ExtResource("2_ldc8g")
+name = "campfire-pit"
+description = ""
+texture_image = ExtResource("3_7uyha")
+object_3d_model = ExtResource("1_lpb87")
+snap_behaviour = 2
+size = Vector3i(0, 0, 0)

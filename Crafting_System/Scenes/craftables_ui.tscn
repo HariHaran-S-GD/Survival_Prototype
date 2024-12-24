@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlenvsmsc40f5"]
+[gd_scene load_steps=8 format=3 uid="uid://dlenvsmsc40f5"]
 
 [ext_resource type="StyleBox" uid="uid://ctgxb7ngnn336" path="res://scenes/Items/paneltheme.tres" id="1_ilnot"]
 [ext_resource type="Script" path="res://Crafting_System/Scripts/craftables_ui.gd" id="2_jfdpa"]
@@ -53,6 +53,14 @@ shadow_color = Color(0, 0, 0, 0.109804)
 shadow_size = 1
 shadow_offset = Vector2(0, 2)
 
+[sub_resource type="LabelSettings" id="LabelSettings_6tu5j"]
+font_size = 24
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 1)
+
 [node name="Craftables_UI" type="Panel"]
 custom_minimum_size = Vector2(0, 74)
 offset_right = 763.0
@@ -78,14 +86,13 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 84.0
-offset_top = -30.0
-offset_right = 592.0
-offset_bottom = 31.0
+offset_left = 108.0
+offset_top = -37.0
+offset_right = 639.0
+offset_bottom = 38.0
 grow_vertical = 2
-text = "Rock x 1
-Wood x 2
-"
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
 
 [node name="Craft_button" type="Button" parent="."]
 layout_mode = 1
@@ -101,10 +108,28 @@ offset_bottom = 25.0
 grow_horizontal = 0
 grow_vertical = 2
 focus_mode = 0
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 theme_override_styles/hover = SubResource("StyleBoxFlat_hosvb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_faiu1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1h2uy")
 text = "Craft"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -806.0
+offset_top = -4.0
+offset_right = -701.0
+offset_bottom = 42.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Axe"
+label_settings = SubResource("LabelSettings_6tu5j")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [connection signal="pressed" from="Craft_button" to="." method="_on_craft_button_pressed"]

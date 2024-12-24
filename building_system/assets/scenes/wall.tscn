@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://k6megjmf1vvy"]
+
+[ext_resource type="PackedScene" uid="uid://rwx7cysfwgv7" path="res://building_system/assets/scenes/palisade.glb" id="1_27hb0"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(2.898, 0, 0, 0, 2.898, 0, 0, 0, 2.898, 0, 0, 0)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_27hb0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.286231, 0)
